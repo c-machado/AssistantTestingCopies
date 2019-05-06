@@ -1,7 +1,7 @@
 package runner;
 
 import org.testng.annotations.Test;
-import pages.Homepage;
+import base.Homepage;
 
 public class TestRunner {
     //private TestNGCucumberRunner testNGCucumberRunner;
