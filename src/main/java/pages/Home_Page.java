@@ -30,7 +30,7 @@ public class Home_Page {
     private String securityCtaLearn;
     private String securityLink;
     private String footerOption;
-
+    private String whatIsNewLinkCTA;
 
 
     @FindBy (css = "[data-c-slide-1].carousel__item:not(.clone) .home-carousel__text-image[src]")
@@ -109,28 +109,28 @@ public class Home_Page {
         WebDriverWait waituntilCarouselIsLoaded = new WebDriverWait(driver,30);
         waituntilCarouselIsLoaded.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-c-slide-1].carousel__item:not(.clone) a[href]")));
 
-        System.out.println("1. hero_carousel_img_slide_1" + heroCarouselImgSlide1.getAttribute("innerText") + "\n");
+        System.out.println("1. hero_carousel_img_slide_1" + heroCarouselImgSlide1.getAttribute("src") + "\n");
 
         String description = heroCarouselDescpSlide1.getAttribute("innerText");
         System.out.println("2. hero_carousel_descp_slide_1" + description + "\n");
 
         System.out.println("3. hero_carousel_learn_cta_slide_1" + heroCarouselLearnCtaSlide1.getAttribute("innerText") + "\n");
 
-        System.out.println("4. hero_carousel_learn_link__slide_1" + heroCarouselLearnLinkSlide1.getAttribute("innerText") + "\n");
+        System.out.println("4. hero_carousel_learn_link__slide_1" + heroCarouselLearnLinkSlide1.getAttribute("href") + "\n");
 //        heroCarouselLearnLinkSlide1.click();
     }
 
     public void getVideoInfo(){
         videoTitle = videoTitleElement.getText();
         videoDescription = videoDescriptionElement.getText();
-        videoId = videoYoutubeId.getAttribute("innerText");
+        videoId = videoYoutubeId.getAttribute("data-c-video-id");
         System.out.println("TITLE: " + videoTitle + " DESCRIPTION: " + videoDescription + " Youtube Id: "+ videoId + "\n");
     }
 
     public void getDevicesInfo(){
         devicesTitle = devicesTitleElement.getAttribute("innerText");
         devicesDescription = devicesDescriptionElement.getAttribute("innerText");
-        devicesLearnMoreLink = devicesLearnLinkElement.getAttribute("innerText");
+        devicesLearnMoreLink = devicesLearnLinkElement.getAttribute("href");
         devicesPhonesTitle = phonesTitleElement.getAttribute("innerText");
         System.out.println("devicesTitle " + devicesTitle + "\n" + " DESCRIPTION: " + devicesDescription + "\n" + " LINK LEARN MORE: " + devicesLearnMoreLink
                 + " PHONES TITLE: "+ "\n" + devicesPhonesTitle + " DEVICES ELEMENTS SIZE: "+ "\n" + devicesElements.size() + "\n");
@@ -140,6 +140,7 @@ public class Home_Page {
         whatIsNewTitle = whatIsNewTitleElement.getAttribute("innerText");
         whatIsNewDescription = whatIsNewDescriptionElement.getAttribute("innerText");
         whatIsNewCTA = whatIsNewCTAElement.getAttribute("innerText");
+        whatIsNewLinkCTA = whatIsNewCTAElement.getAttribute("href");
         System.out.println("WHAT IS NEW TITLE: "+ whatIsNewTitle + " DESCRIPTION: " + whatIsNewDescription + " CTA: " + whatIsNewCTA + "\n");
     }
 
@@ -153,7 +154,7 @@ public class Home_Page {
         securityTitle = securityTitleElement.getAttribute("innerText");
         securityDescription = securityDescriptionElement.getAttribute("innerText");
         securityCtaLearn = securityLearnCtaElement.getAttribute("innerText");
-        securityLink = securityLearnCtaElement.getAttribute("innerText");
+        securityLink = securityLearnCtaElement.getAttribute("href");
         System.out.println("SECURITY TITLE: "+ securityTitle + " DESCRIPTION: " + securityDescription + " CTA: "
                 + securityCtaLearn + "LINK: " + securityLink + "\n");
     }
